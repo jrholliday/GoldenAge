@@ -122,20 +122,3 @@ class Book(object):
     def save(self, filename):
         pickle.dump(self, open(filename, "w"))
         return os.path.abspath(filename)
-
-    def make_graph(self, filename="graph.png"):
-        import matplotlib
-        matplotlib.use('Agg')
-        import matplotlib.pyplot
-        import networkx
-
-        G = networkx.DiGraph()
-        for node in self._nodes:
-            for link, weight in self._nodes[node].get_links().iteritems():
-                G.add_edge(self._nodes[node].get_text(),
-                           self._nodes[link].get_text(),
-                           weight=weight)
-
-        networkx.draw(G, node_size=5000, node_color="yellow")
-        matplotlib.pyplot.savefig(filename)
-        

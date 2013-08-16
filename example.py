@@ -1,5 +1,5 @@
 import GoldenAge
-
+import GoldenAge.tools
 
 test = GoldenAge.Book("Simple Example")
 test.add_author("Bill Shakespeare")
@@ -42,4 +42,4 @@ for i in xrange(100):
 for text in sorted(trials):
     print text
 
-test.make_graph()
+GoldenAge.tools.make_graph(test)
