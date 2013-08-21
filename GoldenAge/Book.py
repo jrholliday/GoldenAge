@@ -11,6 +11,7 @@ import os
 
 class Book(object):
     """Collection of linked nodes/writtings.  Taken together, they form a Book"""
+
     def __init__(self, title):
         """Initialize a new Book object with a specified title"""
         self._BEGIN = datetime.datetime.now().isoformat()
