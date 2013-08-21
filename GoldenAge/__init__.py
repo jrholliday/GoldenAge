@@ -2,6 +2,8 @@ import cPickle as _pickle
 
 from Book import Book
 
+###############################################################################
+
 def license():
     """Display license and copyright notice for the GoldenAge package."""
 
@@ -20,5 +22,6 @@ def license():
 
 
 def load(filename):
+    """Load a Book from the specified (pickle) file."""
     book = _pickle.load(open(filename))
     return book

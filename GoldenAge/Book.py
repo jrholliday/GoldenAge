@@ -53,41 +53,59 @@ class Book(object):
         #
         return info
 
+    #-------------------------------------------------------------------------#
+
     def get_title(self):
         """Return a copy of _title"""
         return self._title
+
+    #-------------------------------------------------------------------------#
 
     def get_description(self):
         """Return a short description of the Book"""
         return self._meta['desc']
 
+    #-------------------------------------------------------------------------#
+
     def get_authors(self):
         """Return a copy of the _author list"""
         return self._author.copy()
 
+    #-------------------------------------------------------------------------#
+
     def get_meta(self):
         """Return a copy of the _meta dict"""
         return self._meta.copy()
+
+    #-------------------------------------------------------------------------#
 
     def edit_title(self, title):
         """Edit and (re)format the title of the Book"""
         self._title = str(title).strip()
         return None
 
+    #-------------------------------------------------------------------------#
+
     def edit_description(self, description):
         """Edit and (re)format a short description of the Book"""
         self._meta['desc'] = str(description).strip()
         return None
+
+    #-------------------------------------------------------------------------#
 
     def add_author(self, author):
         """Add a (re)formatted Author to the _author list"""
         self._author.append(str(author).title().strip())
         return None
 
+    #-------------------------------------------------------------------------#
+
     def add_meta(self, tag, text):
         """Add a (re)formatted tag/text pair to the _meta dict"""
         self._meta[str(tag).strip()] = str(text).strip()
         return None        
+
+    #-------------------------------------------------------------------------#
 
     def add_branch(self, node=None, text=None):
         """Add new node to specified existing node.
@@ -110,6 +128,8 @@ class Book(object):
         self._nodes[node].add_link(new_id)
         return new_id
 
+    #-------------------------------------------------------------------------#
+
     def terminate_branch(self, node):
         """Add link to connect specified node to END_OF_BOOK
 
@@ -123,6 +143,8 @@ class Book(object):
         assert(node in self._nodes)
         self._nodes[node].add_link(self._END)
         return None
+
+    #-------------------------------------------------------------------------#
 
     def insert_branch(self, node, break_pt):
         """Break a specified node in two, thus introducing a new branch point.
@@ -145,6 +167,8 @@ class Book(object):
         self._nodes[node].set_text(self._nodes[node].get_text()[0:break_pt])
         self._nodes[node]._set_links({new_id: 0.0})
         return node
+
+    #-------------------------------------------------------------------------#
 
     def dump(self, mode):
         """Create a representation of the Book.
@@ -176,6 +200,8 @@ class Book(object):
             else:
                 node = random.choice(nodes.keys())
         return text.strip()
+
+    #-------------------------------------------------------------------------#
 
     def save(self, filename):
         """Serialize (pickle) the Book and write it to file.
