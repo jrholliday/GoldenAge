@@ -25,8 +25,8 @@ class Node(object):
     #-------------------------------------------------------------------------#
     
     def set_text(self, text):
-        """Set the _text of the node to the specified (and stripped) text"""
-        self._text = str(text).strip()
+        """Set the _text of the node to the specified text"""
+        self._text = str(text)
         return None
     
     #-------------------------------------------------------------------------#

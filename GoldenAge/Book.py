@@ -15,8 +15,7 @@ class Book(object):
     def __init__(self, title):
         """Initialize a new Book object with a specified title"""
         self._BEGIN = datetime.datetime.now().isoformat()
-        self._END   = datetime.datetime.max.isoformat()
-        self._END   = datetime.datetime.min.isoformat()
+        self._END   = datetime.datetime.now().isoformat()
         # Initialize Book members
         self._title  = str(title).strip()
         self._author = list()
@@ -188,7 +187,8 @@ class Book(object):
         text = str()
         node = self._BEGIN
         while node != self._END:
-            text += self._nodes[node].get_text() + " "
+            if node != self._BEGIN:
+                text += self._nodes[node].get_text()
             nodes = self._nodes[node].get_links()
             if len(nodes) == 0:
                 break
