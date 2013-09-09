@@ -37,6 +37,7 @@ print test.dump("NEW")
 print
 #print test.dump("POPULAR")
 #print
+
 trials = set()
 for i in xrange(100):
     trials.add(test.dump("RANDOM"))
